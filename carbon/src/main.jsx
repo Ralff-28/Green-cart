@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductSearch from "./index.jsx";
 import Analysis from "./analysis.jsx";
 import Cart from "./cart.jsx";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 function BackgroundImage() {
   return (
     <div
@@ -105,7 +106,7 @@ const CarbonFootprintForm = () => {
     setError(null);
     setLoading(true);
     try {
-      await axios.post("http://localhost:8080/api/submit", {
+      await axios.post(`${API_BASE_URL}/api/submit`, {
         productLink: productLink.trim(),
       });
       await fetchAPI();
@@ -121,7 +122,7 @@ const CarbonFootprintForm = () => {
     setError(null);
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:8080/api/users");
+      const response = await axios.get(`${API_BASE_URL}/api/users`);
       setResults(response.data.users);
       setShowResults(true);
     } catch (err) {

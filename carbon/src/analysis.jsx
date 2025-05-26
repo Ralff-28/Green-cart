@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import bgImage from "./assets/bgimg.jpg";
-
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 function BackgroundImage() {
   return (
     <div
@@ -38,7 +38,7 @@ const Analysis = () => {
     setProduct(productObj);
     const fetchAnalysis = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/analyse-url", {
+        const response = await fetch(`${API_BASE_URL}/api/analyse-url`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ asin: productObj.asin }),

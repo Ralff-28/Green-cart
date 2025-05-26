@@ -9,7 +9,7 @@ import Alert from "react-bootstrap/Alert";
 import Nav from "react-bootstrap/Nav"; // Added missing import for Nav
 import { Link, useNavigate } from "react-router-dom";
 import bgImage from "./assets/bgimg.jpg";
-
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 function BackgroundImage() {
   return (
     <div
@@ -51,7 +51,7 @@ const ProductSearch = ({ cart, setCart }) => {
     setLoading(true);
     try {
       // Send POST request to backend
-      const postResponse = await axios.post("http://localhost:8080/search", { query });
+      const postResponse = await axios.post(`${API_BASE_URL}/search`, { query });
       console.log("POST Response:", postResponse.data); // Log POST response
       if (postResponse.status === 200) {
         const { filename } = postResponse.data; // Get the filename from the POST response
@@ -59,7 +59,7 @@ const ProductSearch = ({ cart, setCart }) => {
 
         // Read the file directly by sending a request to the new backend endpoint
         const filePath = `d:/Carbon/server/${filename}`; // Construct the file path
-        const response = await axios.post("http://localhost:8080/read-file", { filePath }); // Use the backend endpoint to read the file
+        const response = await axios.post(`${API_BASE_URL}/read-file`, { filePath }); // Use the backend endpoint to read the file
         console.log("File Data:", response.data); // Log the file data
 
         // Extract product details from the file data

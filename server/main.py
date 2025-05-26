@@ -12,7 +12,7 @@ import re
 import glob
 
 # Set up Google Gemini API client
-client = genai.Client(api_key="Your API KEY")
+client = genai.Client(api_key="AIzaSyC7VmFWi3ZEobk8tvwNl5JFpL76gIaxha8")
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": ["http://localhost:5173"]}})  # Restrict CORS to the frontend origin
@@ -195,7 +195,7 @@ def search_products_post():
     url = 'https://real-time-amazon-data.p.rapidapi.com/search'
     headers = {
         'x-rapidapi-host': 'real-time-amazon-data.p.rapidapi.com',
-        'x-rapidapi-key': 'Paste Rapid API api key'
+        'x-rapidapi-key': '6910db8c34msh129e51a9e2b5869p188878jsncfddeb166b8d'
     }
     params = {
         'query': query,
