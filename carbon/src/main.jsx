@@ -70,22 +70,22 @@ function ResultsDisplay({ results }) {
       className="mt-3 shadow-sm"
       role="region"
       aria-live="polite"
-      aria-label="Fetched product links"
-      style={{ backgroundColor: "rgba(255, 255, 255, 0.85)" }}
+      aria-label="Fetched product analysis"
+      style={{ backgroundColor: "rgba(255, 255, 255, 0.95)", fontFamily: 'Segoe UI, Arial, sans-serif' }}
     >
       <Card.Body>
-        {results.map((link, index) => (
-          <div key={index} className="mb-2">
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-decoration-none"
-            >
-              {link}
-            </a>
-          </div>
-        ))}
+        <h4 style={{ fontWeight: 'bold', color: '#2d6a4f', marginBottom: '1rem' }}>Carbon Footprint Analysis</h4>
+        <ul style={{ paddingLeft: '1.5rem', fontSize: '1.1rem', color: '#222' }}>
+          {results.map(analysis =>
+            analysis.split('\n').map((point, i) =>
+              point.trim() ? (
+                <li key={i} style={{ marginBottom: '0.5rem', lineHeight: 1.5 }}>
+                  <span style={{ fontWeight: point.includes(':') ? 'bold' : 'normal', color: point.includes('eco') ? '#40916c' : '#222' }}>{point}</span>
+                </li>
+              ) : null
+            )
+          )}
+        </ul>
       </Card.Body>
     </Card>
   );
