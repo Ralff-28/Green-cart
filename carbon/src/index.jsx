@@ -9,7 +9,7 @@ import Alert from "react-bootstrap/Alert";
 import Nav from "react-bootstrap/Nav"; // Added missing import for Nav
 import { Link, useNavigate } from "react-router-dom";
 import bgImage from "./assets/bgimg.jpg";
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+const API_BASE_URL = "https://green-cart-backend-cofn.onrender.com";
 function BackgroundImage() {
   return (
     <div
@@ -58,7 +58,7 @@ const ProductSearch = ({ cart, setCart }) => {
         console.log("Filename received:", filename); // Log the filename
 
         // Read the file directly by sending a request to the new backend endpoint
-        const filePath = `d:/Carbon/server/${filename}`; // Construct the file path
+        const filePath = filename; // Use just the filename for backend compatibility
         const response = await axios.post(`${API_BASE_URL}/read-file`, { filePath }); // Use the backend endpoint to read the file
         console.log("File Data:", response.data); // Log the file data
 
