@@ -15,7 +15,7 @@ import glob
 client = genai.Client(api_key="AIzaSyC7VmFWi3ZEobk8tvwNl5JFpL76gIaxha8")
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["http://localhost:5173"]}})  # Restrict CORS to the frontend origin
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5173","https://green-cart-pearl.vercel.app/"]}})  # Restrict CORS to the frontend origin
 
 DATA_FILE = "data.json"
 
