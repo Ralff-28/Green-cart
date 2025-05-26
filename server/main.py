@@ -19,6 +19,9 @@ CORS(app, resources={r"/*": {"origins": ["http://localhost:5173"]}})  # Restrict
 
 DATA_FILE = "data.json"
 
+# Get the directory where this script is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Read stored product links
 def read_links():
     try:
@@ -162,7 +165,7 @@ def submit():
 item = 0  # Set item as zero initially
 pattern = re.compile(r"data(\\d+)\\.json")
 # Initialize item based on existing dataN.json files
-for fname in os.listdir("d:/Carbon/server"):
+for fname in os.listdir(BASE_DIR):
     match = pattern.match(fname)
     if match:
         num = int(match.group(1))
@@ -179,9 +182,9 @@ def search_products_post():
     print("Received query:", query)  # Log the received query
 
     # Check for existing file with matching query
-    for fname in os.listdir("d:/Carbon/server"):
+    for fname in os.listdir(BASE_DIR):
         if pattern.match(fname):
-            fpath = os.path.join("d:/Carbon/server", fname)
+            fpath = os.path.join(BASE_DIR, fname)
             try:
                 with open(fpath, "r", encoding="utf-8") as f:
                     content = json.load(f)
@@ -215,11 +218,11 @@ def search_products_post():
         if response.status_code == 200:
             data = response.json()
             # Remove all previous dataN.json files
-            for f in glob.glob("d:/Carbon/server/data*.json"):
+            for f in glob.glob(os.path.join(BASE_DIR, "data*.json")):
                 os.remove(f)
             # Always save as data1.json
             filename = "data1.json"
-            filepath = os.path.join("d:/Carbon/server", filename)
+            filepath = os.path.join(BASE_DIR, filename)
             with open(filepath, "w", encoding="utf-8") as file:
                 json.dump(data, file, indent=4)
             print(f"Full data saved to {filename}")  # Log data saving
@@ -275,7 +278,7 @@ def analyse_url():
         if not asin:
             return jsonify({"error": "Product ASIN is required."}), 400
         # Load data1.json (or latest dataN.json if you want)
-        with open('d:/Carbon/server/data1.json', 'r', encoding='utf-8') as f:
+        with open(os.path.join(BASE_DIR, 'data1.json'), 'r', encoding='utf-8') as f:
             products = json.load(f)["data"]["products"]
         product = next((p for p in products if p.get('asin') == asin), None)
         if not product:
@@ -291,4 +294,4 @@ def analyse_url():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080)
+    app.run(debug=False, port=8080)
