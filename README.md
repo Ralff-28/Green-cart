@@ -9,6 +9,32 @@ Green Cart is a full-stack web application that allows users to search for produ
 - **Cart Management:** Add products to a cart for easy management.
 - **Modern UI:** Responsive React frontend with Bootstrap styling.
 
+## Website's images
+
+### Home Page
+![Home Page](images/Screenshot%202025-05-27%20030652.png)
+
+### Product Search Results
+![Product Search Results](images/Screenshot%202025-05-27%20030819.png)
+
+### Product Details
+![Product Details](images/Screenshot%202025-05-27%20030902.png)
+
+### Carbon Footprint Analysis
+![Carbon Footprint Analysis](images/Screenshot%202025-05-27%20030957.png)
+
+### Add to Cart
+![Add to Cart](images/Screenshot%202025-05-27%20031033.png)
+
+### Cart View
+![Cart View](images/Screenshot%202025-05-27%20031047.png)
+
+### Checkout Page
+![Checkout Page](images/Screenshot%202025-05-27%20031107.png)
+
+### Order Confirmation
+![Order Confirmation](images/Screenshot%202025-05-27%20031117.png)
+
 ## Deployed Application
 
 - **Frontend:** https://green-cart-pearl.vercel.app
