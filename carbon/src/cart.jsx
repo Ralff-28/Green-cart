@@ -10,10 +10,6 @@ const Cart = ({ cart, setCart }) => {
     localStorage.setItem("cart", JSON.stringify([]));
   };
 
-  const handleBuyNow = () => {
-    setShowPopup(true);
-  };
-
   const handleClosePopup = () => {
     setShowPopup(false);
   };
@@ -38,7 +34,6 @@ const Cart = ({ cart, setCart }) => {
         <h1 className="text-center">Your Cart</h1>
         <div className="d-flex justify-content-end mb-3" style={{ gap: '1rem' }}>
           <button className="btn btn-danger" onClick={handleClear}>Clear</button>
-          <button className="btn btn-success" onClick={handleBuyNow}>Buy now</button>
         </div>
         {cart.length === 0 ? (
           <div className="alert alert-info text-center">Your cart is empty.</div>
