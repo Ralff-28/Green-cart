@@ -53,6 +53,7 @@ def analyze_carbon_footprint(last_link):
 
     Provide a structured analysis in detailed points showcasing quality, sustainability, ecofriendliness and carbon footprint of the product.
     IMPORTANT: Do NOT mention lack of data, do NOT say you cannot provide a precise calculation, and do NOT use generic disclaimers. Always provide a detailed, actionable analysis based on reasonable assumptions and typical product characteristics. Never say you cannot analyze. If you must assume, do so confidently and state your assumptions.
+    Please keep it short and concise, ideally under 300 words.
     """
 
     response = client.models.generate_content(

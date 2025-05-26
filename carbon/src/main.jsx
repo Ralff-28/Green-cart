@@ -13,7 +13,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductSearch from "./index.jsx";
 import Analysis from "./analysis.jsx";
 import Cart from "./cart.jsx";
-
 function BackgroundImage() {
   return (
     <div

@@ -119,10 +119,9 @@ const ProductSearch = ({ cart, setCart }) => {
       <div className="p-4">
         <Navbar bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand as={Link} to="/">Product Search</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/product-search">Eco Cart</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">Home</Nav.Link>
-              <Nav.Link as={Link} to="/product-search">Product Search</Nav.Link>
               <Nav.Link as={Link} to="/cart">Cart ({cart.length})</Nav.Link>
             </Nav>
           </Container>

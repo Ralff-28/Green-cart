@@ -82,11 +82,11 @@ const Analysis = () => {
         </h1>
         <div className="card mt-4">
           <div className="card-body">
-            <h5 className="card-title">Eco-Friendliness Analysis</h5>
+            <h5 style={{fontSize:'2rem'}} className="card-title">Eco-Friendliness Analysis</h5>
             <ul>
               {analysis && analysis.points && analysis.points.map((point, index) => (
                 <div key={index}>
-                  <ul>{point}</ul>
+                  <ul style={{fontStyle: 'italic', fontSize: '1.5rem' }}>{point}</ul>
                   <br />
                 </div>
               ))}
