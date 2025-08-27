@@ -1,4 +1,4 @@
-# Green Cart – Carbon Footprint Product Analysis
+# Green Cart – Carbon Footprint Product Analysis Prototype
 
 Green Cart is a full-stack web application that allows users to search for products, analyze their carbon footprint and eco-friendliness, and manage a shopping cart. The backend uses Flask and Google Gemini API for analysis, while the frontend is built with React and Vite.
 
